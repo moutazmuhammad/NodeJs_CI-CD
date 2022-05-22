@@ -25,7 +25,7 @@ pipeline {
             steps {
             withCredentials([usernamePassword(credentialsId: 'RDS_CRED', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                 // Run the docker container 
-                sh "docker run -d -it -p 80:3000 --env REDIS_PORT=6379 --env RDS_HOSTNAME=${rds_hostname_Endpoint} --env RDS_USERNAME=${USERNAME} --env RDS_PASSWORD=${PASSWORD} --env REDIS_HOSTNAME=${redis_hostname_Endpoint} --env RDS_PORT=3306 moutazmuhammad/node_app_ci_cd"
+                sh "docker run -d -it -p 80:3000 --env RDS_HOSTNAME=${rds_hostname_Endpoint} --env RDS_USERNAME=${USERNAME} --env RDS_PASSWORD=${PASSWORD} --env REDIS_HOSTNAME=${redis_hostname_Endpoint} moutazmuhammad/node_app_ci_cd"
             }
                 
             }
